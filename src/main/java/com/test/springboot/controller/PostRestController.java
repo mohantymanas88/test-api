@@ -54,11 +54,11 @@ public class PostRestController {
 	@GetMapping("/posts/{postId}")
 	public Post getPost(@PathVariable Long postId) {
 
-		Optional<Post> student = postRepository.findById(postId);
+		Optional<Post> post = postRepository.findById(postId);
 
-		if (!student.isPresent())
+		if (!post.isPresent())
 			throw new ResourceNotFoundException("PostId " + postId + " not found");
-		return student.get();
+		return post.get();
 	}
 
 	/**
